@@ -1,0 +1,91 @@
+﻿@using WebApplicationEF1616.Models;
+@model TB_EFEMPLOYE
+@{
+    ViewData["Title"] = "AddEmployee";
+    Layout = "~/Views/Shared/_UserLayout1.cshtml";
+}
+
+<h1>AddEmployee</h1>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <section class=" text-center text-lg-start">
+        <style>
+            .rounded-t-5 {
+                border-top-left-radius: 0.5rem;
+                border-top-right-radius: 0.5rem;
+            }
+
+
+            .rounded-bl-lg-5 {
+                border-bottom-left-radius: 0.5rem;
+            }
+
+            }
+        </style>
+        ad>
+        <meta charset="utf-8" />
+        <link href="Content/bootstrap.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://www.markuptag.com/bootstrap/5/css/bootstrap.min.css">
+        <title></title>
+</head>
+<body>
+    <section class="vh-100 bg-image"
+             style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+        <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+            <div class="container h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                        <div class="card" style="border-radius: 15px;">
+                            <div class="card-body p-5">
+                                <h2 class="text-uppercase text-center mb-5"></h2>
+                                @using (Html.BeginForm())
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <h4 class="mb-5 text-secondary">INSERTING DETAILS</h4>
+                                    <div class="row">
+                                        <div class="mb-3 col-md-8">
+                                            <label>ENAME<span class="text-danger">*</span></label>
+                                            @Html.TextBoxFor(model => model.ENAME, new { @class = "form-control", placeholder="Enter ENAME" })
+                                            @Html.ValidationMessageFor(model => model.ENAME, "", new { @class = "text-danger" })
+                                        </div>
+                                        
+                                        <div class="mb-3 col-md-8">
+                                            <label>EDEPT<span class="text-danger">*</span></label>
+                                            @Html.TextBoxFor(model => model.EDEPT, new { @class = "form-control", placeholder="Enter EDEPT" })
+                                            @Html.ValidationMessageFor(model => model.EDEPT, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="mb-3 col-md-8">
+                                            <label>QUALICATION<span class="text-danger">*</span></label>
+                                            @Html.TextBoxFor(model => model.QUALICATION, new { @class = "form-control", placeholder="Enter QUALICATION" })
+                                            @Html.ValidationMessageFor(model => model.QUALICATION, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="mb-3 col-md-8">
+                                            <label>SALARY<span class="text-danger">*</span></label>
+                                            @Html.TextBoxFor(model => model.SALARY, new { @class = "form-control", placeholder="Enter SALARY" })
+                                            @Html.ValidationMessageFor(model => model.SALARY, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="mb-3 col-md-8">
+                                            <label>SALARY<span class="text-danger">*</span></label>
+                                            @Html.TextBoxFor(model => model.SALARY, new { @class = "form-control", placeholder="Enter BRANCH" })
+                                            @Html.ValidationMessageFor(model => model.SALARY, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="mb-3 col-md-8">
+                                            <label>JOBTYPE<span class="text-danger">*</span></label>
+                                            @Html.TextBoxFor(model => model.JOBTYPE, new { @class = "form-control", placeholder="Enter JOBTYPE" })
+                                            @Html.ValidationMessageFor(model => model.JOBTYPE, "", new { @class = "text-danger" })
+                                        </div>  
+                                        <div class="mb-3 col-md-8">
+                                            <label>EXPERENACE<span class="text-danger">*</span></label>
+                                            @Html.TextBoxFor(model => model.EXPERENACE, new { @class = "form-control", placeholder="Enter EXPERENACE" })
+                                            @Html.ValidationMessageFor(model => model.EXPERENACE, "", new { @class = "text-danger" })
+                                        </div>
+
+                                        <input type="submit" class="btn btn-primary float-end" value="Submit">
+                                    </div>
+
+                                }
+</body>
+</html>

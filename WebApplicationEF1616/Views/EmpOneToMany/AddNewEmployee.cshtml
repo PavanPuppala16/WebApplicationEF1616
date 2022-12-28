@@ -1,0 +1,74 @@
+﻿@using WebApplicationEF1616.Models;
+@model Employee
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddCountry</title<section class=" text-center text-lg-start">
+        <style>
+            .rounded-t-5 {
+                border-top-left-radius: 0.5rem;
+                border-top-right-radius: 0.5rem;
+            }
+
+
+            .rounded-bl-lg-5 {
+                border-bottom-left-radius: 0.5rem;
+            }
+
+            }
+        </style>
+      
+        <meta charset="utf-8" />
+        <link href="Content/bootstrap.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://www.markuptag.com/bootstrap/5/css/bootstrap.min.css">
+        <title></title>
+</head>
+<body>
+    <section class="vh-100 bg-image"
+             style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+        <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+            <div class="container h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                        <div class="card" style="border-radius: 15px;">
+                            <div class="card-body p-5">
+                                <h2 class="text-uppercase text-center mb-5"></h2>
+                                @using (Html.BeginForm())
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <h4 class="mb-5 text-secondary">INSERTING DETAILS</h4>
+                                    <div class="row">
+                                        <div class="mb-3 col-md-8">
+
+                                            <label>EName<span class="text-danger">*</span></label>
+                                            @Html.TextBoxFor(model => model.EName, new { @class = "form-control", placeholder="Enter EName" })
+                                            @Html.ValidationMessageFor(model => model.EName, "", new { @class = "text-danger" })
+                                        </div>
+
+
+                                        <div class="mb-3 col-md-8">
+                                            <label>Salary<span class="text-danger">*</span></label>
+                                            @Html.TextBoxFor(model => model.Salary, new { @class = "form-control", placeholder="Enter Salary" })
+                                            @Html.ValidationMessageFor(model => model.Salary, "", new { @class = "text-danger" })
+                                        </div>
+                                       <div class="form-group">
+            @Html.LabelFor(model => model.BankID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.BankID,new SelectList(ViewBag.Bank, "Value", "Text")); 
+                @Html.ValidationMessageFor(model => model.BankID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+                                        <input type="submit" class="btn btn-primary float-end" value="Submit">
+                                    </div>
+
+                                }
+
+</body>
+</html>

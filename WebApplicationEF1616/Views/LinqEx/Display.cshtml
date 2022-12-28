@@ -1,0 +1,51 @@
+﻿@model IEnumerable<WebApplicationEF1616.Models.LinqEx>
+@{
+    ViewData["Title"] = "Display";
+    Layout = "~/Views/Shared/_UserLayout1.cshtml";
+}
+
+<h1>Display</h1>
+
+
+<div class="container">
+    Welcome To Display Data Page
+</div>
+@Html.ActionLink(" AddProduct","AddLinkEx"," LinqEx");
+@Html.ActionLink("GOBACK TO LIST","Display","LinqEx");
+<table class="table table-striped">
+    <tr>
+        <th>ID</th>
+        <th>ROLLNO</th>
+        <th>NAME</th>
+        <th>SURNAME</th>
+        <th>AGE</th>
+        <th>GENDER</th>
+        <th>SALARY</th>
+        <th>MARKS</th>
+        <th>LUCKY</th>
+        <th>ACTION</th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.ROLLNO</td>
+            <td>@item.NAME</td>
+            <td>@item.SURNAME</td>
+            <td>@item.AGE</td>
+            <td>@item.GENDER</td>
+            <td>@item.SALARY</td>
+            <td>@item.MARKS</td>
+            <td>@item.LUCKY</td>
+
+            <td>
+                @Html.ActionLink("Update","EDIT","LinqEx", new {ID = item.ID},null) |
+                @Html.ActionLink("Delete","DELETEDATA","LinqEx", new { ID= item.ID},null)
+            </td>
+        </tr>
+    }
+
+</table>
+
+

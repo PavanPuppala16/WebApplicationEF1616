@@ -1,0 +1,38 @@
+﻿
+@model IEnumerable<WebApplicationEF1616.Models.PRODUCT>
+@{
+    Layout = null;
+}
+<h1>DisplayData</h1>
+<div class="container">
+    Welcome To Display Data Page
+</div>
+@Html.ActionLink("GOBACK TO LIST","Display","PRODUCT");
+
+<table class="table table-striped">
+    <tr>
+        <th>PID</th>
+        <th>PNAME</th>
+        <th>DESCREPTION</th>
+        <th>EXPAIRYDATE</th>
+        <th>PRICE</th>
+        <th>ACTION</th>
+       
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.PID</td>
+            <td>@item.PNAME</td>
+            <td>@item.DESCREPTION</td>
+            <td>@item.EXPAIRYDATE</td>
+            <td>@item.PRICE</td>
+            
+            <td>
+                @Html.ActionLink("Update","EDIT","PRODUCT", new {PID = item.PID},null) |
+                @Html.ActionLink("Delete","DELETEDATA","PRODUCT", new { PID= item.PID},null)
+            </td>
+        </tr>
+    }
+
+</table>
